@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top left, #1f1c2c, #928dab, #1f1c2c);
+    background-size: 200% 200%;
+    animation: moveBackground 10s ease infinite;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .signup-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+    width: 100%;
+    max-width: 400px;
+    color: #fff;
+    backdrop-filter: blur(15px);
+    animation: fadeInUp 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  .signup-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #00f2ff;
+  }
+  
+  .input-group {
+    margin-bottom: 30px; /* زيادة المسافة بين الحقول */
+    position: relative;
+  }
+  
+  .input-group i {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    color: #00d2ff;
+  }
+  
+  .input-group input {
+    width: 90%; /* تقليل العرض إلى 90% */
+    padding: 12px 16px ; /* زيادة الحشو داخل الـ input */
+    background: transparent;
+    border: 2px solid #00d2ff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px; /* إضافة المسافة العلوية */
+  }
+  
+  .input-group input:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+  }
+  
+  .input-group input:focus {
+    border-color: #00f2ff;
+    outline: none;
+    box-shadow: 0 0 8px #00f2ff55;
+    transform: scale(1.05);
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #00d2ff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    background: #00b3cc;
+    box-shadow: 0 0 15px #00f2ff88;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(1);
+  }
+  
+  .signup-button {
+    margin-top: 20px;
+    background: #ff7f50;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%;
+  }
+  
+  .signup-button:hover {
+    background: #ff6347;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 99, 71, 0.7);
+  }
+  
+  .signup-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #00d2ff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .signup-link:hover {
+    color: #00f2ff;
+    text-decoration: underline;
+  }
+  
+  .error {
+    color: #ff4d4d;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: left;
+  }
+  
