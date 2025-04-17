@@ -1,0 +1,115 @@
+.edit-profile-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #0a0f1c, #111827);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: #fff;
+  }
+  
+  .edit-profile-card {
+    background: rgba(30, 41, 59, 0.65);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .edit-profile-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Profile image style */
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    cursor: pointer; /* Added pointer cursor for interactivity */
+  }
+  
+  .profile-image-container .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    animation: glowEffect 1.5s infinite alternate;
+    object-fit: cover;
+  }
+  
+  @keyframes glowEffect {
+    0% {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
+    }
+  }
+  
+  .edit-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #00ffff;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .edit-input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .edit-input-group label {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: #b3c5d5;
+  }
+  
+  .edit-input-group input,
+  .edit-input-group textarea {
+    background: transparent;
+    border: 1px solid #00ffff44;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .edit-input-group input:focus,
+  .edit-input-group textarea:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 10px #00ffff55;
+  }
+  
+  .save-btn {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background-color: #00ffff33;
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .save-btn:hover {
+    background-color: #00ffff55;
+    box-shadow: 0 0 10px #00ffff88;
+    transform: scale(1.05);
+  }
+  

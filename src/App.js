@@ -4,6 +4,11 @@ import './App.css';
 import Login from './components/login/Login'; // Your Login component
 import Signup from './components/signup/Signup';
 import Home from './components/home/Home';
+import Chat from './components/chat/Chat';
+import ChatRoom from './components/chatroom/ChatRoom';
+import Profile from './components/profile/Profile';
+import EditProfile from './components/editprofile/EditProfile';
+import OpenPosts from './components/openposts/OpenPosts';
 
 function App() {
   return (
@@ -12,6 +17,12 @@ function App() {
         <Route path="/login" element={<Login />} /> {/* Login page route */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} /> {/* Home page route */}
+        <Route path="/chat" element={<Chat />} /> {/* Chat page route */}
+        <Route path="/chat/:username" element={<ChatRoom />} /> {/* Chat room route */}
+        <Route path='/profile' element={<Profile />} /> {/* Profile page route */}
+        <Route path='edit' element={<EditProfile />} /> {/* Edit profile page route */}
+        <Route path='/openposts' element={<OpenPosts />} /> {/* Open posts page route */}
+
 
       </Routes>
     </Router>

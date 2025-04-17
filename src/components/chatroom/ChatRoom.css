@@ -1,0 +1,99 @@
+.chatroom-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background-color: #121212;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .chatroom-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1e1e1e;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00d2ff;
+    border-bottom: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .back-arrow {
+    cursor: pointer;
+    color: #00d2ff;
+    transition: color 0.3s ease;
+  }
+  
+  .back-arrow:hover {
+    color: #00aee0;
+  }
+  
+  .chatroom-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .chat-bubble {
+    padding: 12px 20px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 16px;
+  }
+  
+  .chat-bubble.me {
+    background-color: #00d2ff;
+    align-self: flex-end;
+    color: #fff;
+  }
+  
+  .chat-bubble.other {
+    background-color: #333;
+    align-self: flex-start;
+    color: #fff;
+  }
+  
+  .chatroom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+  }
+  
+  .chatroom-footer input {
+    width: 85%;
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .chatroom-footer button {
+    padding: 12px 20px;
+    background-color: #00d2ff;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chatroom-footer button:hover {
+    background-color: #00aee0;
+  }
+  
