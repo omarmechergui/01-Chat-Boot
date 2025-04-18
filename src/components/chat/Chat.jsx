@@ -1,42 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Chat.css';
-import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi'; // flech
+import { FiSearch, FiUser, FiMoreHorizontal } from 'react-icons/fi';
+import ChatRoom from '../chatroom/ChatRoom';
 
-const conversations = [
-  { username: 'aymen', img: 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d', lastMessage: 'Hey, how are you?' },
-  { username: 'sarra', img: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e', lastMessage: 'What\'s up?' },
-  { username: 'nour', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330', lastMessage: 'Good morning!' },
+const users = [
+  { username: 'aymen', userImg: 'https://i.pravatar.cc/60?img=1' },
+  { username: 'sarra', userImg: 'https://i.pravatar.cc/60?img=2' },
+  { username: 'nour', userImg: 'https://i.pravatar.cc/60?img=3' },
+  { username: 'mehdi', userImg: 'https://i.pravatar.cc/60?img=4' },
 ];
 
 const Chat = () => {
-  const navigate = useNavigate();
+  const [activeUser, setActiveUser] = useState(users[0]);  // Default active user is the first user
+  
+  const handleUserChange = (user) => {
+    setActiveUser(user);  // Change active user
+  };
 
   return (
-    <div className="chat-page">
-      <div className="chat-header">
-        <FiArrowLeft
-          className="back-arrow"
-          size={24}
-          onClick={() => navigate('/')}
-        />
-        <h2 className="chat-title">Chats</h2>
+    <div className="chat-container">
+      <div className="chat-sidebar">
+        <div className="sidebar-header">
+          <FiUser size={24} />
+          <span className="sidebar-title">Chat</span>
+        </div>
+        <div className="sidebar-users">
+          {users.map((user, index) => (
+            <div
+              key={index}
+              className={`user-item ${activeUser.username === user.username ? 'active' : ''}`}
+              onClick={() => handleUserChange(user)}
+            >
+              <img src={user.userImg} alt={user.username} />
+              <span>{user.username}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="chat-list">
-        {conversations.map((conv, index) => (
-          <div
-            className="chat-item"
-            key={index}
-            onClick={() => navigate(`/chat/${conv.username}`)}
-          >
-            <img src={conv.img} alt={conv.username} className="chat-avatar" />
-            <div className="chat-info">
-              <h4>{conv.username}</h4>
-              <p>{conv.lastMessage}</p>
-            </div>
+      <div className="chatroom">
+        <div className="chatroom-header">
+          <div className="chatroom-header-left">
+            <FiSearch size={20} />
+            <input type="text" placeholder="Search messages..." />
           </div>
-        ))}
+          <div className="chatroom-header-right">
+            <FiMoreHorizontal size={20} />
+          </div>
+        </div>
+        <div className="chatroom-placeholder">
+          <ChatRoom activeUser={activeUser} />
+        </div>
       </div>
     </div>
   );

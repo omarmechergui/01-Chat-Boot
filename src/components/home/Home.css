@@ -115,14 +115,7 @@ body {
   gap: 10px;
 }
 
-.post-header img {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  margin-right: 10px;
-  object-fit: cover;
-  border: 1px solid #00d2ff;
-}
+
 
 .post-header .username {
   font-size: 18px;
@@ -136,6 +129,15 @@ body {
   height: 400px;
   object-fit: cover;
   border-bottom: 1px solid #333;
+}
+
+.post-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 1px solid #00d2ff;
 }
 
 .post-caption {

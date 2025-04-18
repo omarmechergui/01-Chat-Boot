@@ -18,7 +18,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} /> {/* Home page route */}
         <Route path="/chat" element={<Chat />} /> {/* Chat page route */}
-        <Route path="/chat/:username" element={<ChatRoom />} /> {/* Chat room route */}
         <Route path='/profile' element={<Profile />} /> {/* Profile page route */}
         <Route path='edit' element={<EditProfile />} /> {/* Edit profile page route */}
         <Route path='/openposts' element={<OpenPosts />} /> {/* Open posts page route */}
