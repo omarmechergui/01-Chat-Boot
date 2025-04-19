@@ -1,58 +1,80 @@
-.chatroom-container {
+.chatroom {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.message {
-  padding: 12px;
-  border-radius: 8px;
-  background-color: #444;
-  max-width: 70%;
-  margin-bottom: 10px;
+  background-color: #efeae2;
   position: relative;
 }
 
-.message.incoming {
-  background-color: #2f3136;
-  align-self: flex-start;
-}
-
-.message.outgoing {
-  background-color: #7289da;
-  align-self: flex-end;
-}
-
-.message-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: #ccc;
-}
-
-.message-body {
-  margin-top: 5px;
-  font-size: 16px;
-  color: #e0e0e0;
-}
-
-.username {
+.chatroom-header {
+  background-color: #f0f2f5;
+  padding: 10px 20px;
   font-weight: bold;
+  border-bottom: 1px solid #ddd;
 }
 
-.message-time {
-  font-style: italic;
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.chatroom-container::-webkit-scrollbar {
-  width: 6px;
+.message {
+  max-width: 60%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  font-size: 14px;
+  position: relative;
 }
 
-.chatroom-container::-webkit-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 5px;
+.message.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6;
 }
 
-.chatroom-container::-webkit-scrollbar-thumb:hover {
-  background-color: #888;
+.message.received {
+  align-self: flex-start;
+  background-color: #fff;
+}
+
+.message .meta {
+  font-size: 10px;
+  color: gray;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.chatroom-footer {
+  background-color: #f0f2f5;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatroom-footer input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.chatroom-footer button {
+  background-color: #008069;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.chatroom-footer button:hover {
+  background-color: #056e57;
 }

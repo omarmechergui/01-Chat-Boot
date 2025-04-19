@@ -1,56 +1,41 @@
+// Chat.jsx
 import React, { useState } from 'react';
 import './Chat.css';
-import { FiSearch, FiUser, FiMoreHorizontal } from 'react-icons/fi';
 import ChatRoom from '../chatroom/ChatRoom';
 
 const users = [
-  { username: 'aymen', userImg: 'https://i.pravatar.cc/60?img=1' },
-  { username: 'sarra', userImg: 'https://i.pravatar.cc/60?img=2' },
-  { username: 'nour', userImg: 'https://i.pravatar.cc/60?img=3' },
-  { username: 'mehdi', userImg: 'https://i.pravatar.cc/60?img=4' },
+  { id: 1, name: 'John Smith' },
+  { id: 2, name: 'Jane Doe' },
+  { id: 3, name: 'Bob Johnson' },
+  { id: 4, name: 'Emily Kim' },
 ];
 
 const Chat = () => {
-  const [activeUser, setActiveUser] = useState(users[0]);  // Default active user is the first user
-  
-  const handleUserChange = (user) => {
-    setActiveUser(user);  // Change active user
-  };
+  const [selectedUser, setSelectedUser] = useState(users[0]);
 
   return (
     <div className="chat-container">
-      <div className="chat-sidebar">
-        <div className="sidebar-header">
-          <FiUser size={24} />
-          <span className="sidebar-title">Chat</span>
-        </div>
-        <div className="sidebar-users">
-          {users.map((user, index) => (
-            <div
-              key={index}
-              className={`user-item ${activeUser.username === user.username ? 'active' : ''}`}
-              onClick={() => handleUserChange(user)}
+      <div className="sidebar">
+        <div className="sidebar-header">Chats</div>
+        <ul className="user-list">
+          {users.map((user) => (
+            <li
+              key={user.id}
+              className={user.id === selectedUser.id ? 'active' : ''}
+              onClick={() => setSelectedUser(user)}
             >
-              <img src={user.userImg} alt={user.username} />
-              <span>{user.username}</span>
-            </div>
+              <div className="avatar">{user.name.charAt(0)}</div>
+              <div className="user-info">
+                <div className="username">{user.name}</div>
+                <div className="last-message">Last message...</div>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
-      <div className="chatroom">
-        <div className="chatroom-header">
-          <div className="chatroom-header-left">
-            <FiSearch size={20} />
-            <input type="text" placeholder="Search messages..." />
-          </div>
-          <div className="chatroom-header-right">
-            <FiMoreHorizontal size={20} />
-          </div>
-        </div>
-        <div className="chatroom-placeholder">
-          <ChatRoom activeUser={activeUser} />
-        </div>
+      <div className="chatroom-placeholder">
+        <ChatRoom user={selectedUser} />
       </div>
     </div>
   );
