@@ -1,80 +1,187 @@
+/* استايل الـ ChatRoom بشكل عام */
 .chatroom {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #efeae2;
+  background: radial-gradient(circle at bottom, #000000, #000033 50%, #000011 100%);
   position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  height: 100vh;
 }
 
+/* استايل الـ Header */
 .chatroom-header {
-  background-color: #f0f2f5;
-  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px 20px;
   font-weight: bold;
-  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  border-bottom: 1px solid #1e90ff;
+  backdrop-filter: blur(6px);
 }
 
+/* استايل الرسائل */
 .messages {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
+/* استايل كل رسالة */
 .message {
-  max-width: 60%;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 75%;
+  border-radius: 12px;
   padding: 10px 15px;
-  border-radius: 8px;
-  word-wrap: break-word;
-  font-size: 14px;
-  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .message.sent {
   align-self: flex-end;
-  background-color: #dcf8c6;
+  background-color: rgba(0, 128, 255, 0.3);
 }
 
 .message.received {
   align-self: flex-start;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.message .meta {
+/* استايل المحتوى داخل الرسالة */
+.message .content {
+  flex: 1;
+}
+
+/* استايل الردود داخل الرسالة */
+.reply-block {
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 8px;
+  border-left: 3px solid #00bfff;
+  margin-bottom: 5px;
+}
+
+/* استايل الميتا (وقت الرسالة) */
+.meta {
   font-size: 10px;
-  color: gray;
+  color: #aaa;
   margin-top: 5px;
-  text-align: right;
 }
 
+/* استايل الصورة الشخصية (avatar) */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #00bfff;
+}
+
+/* استايل الـ Footer (جزء الكتابة) */
 .chatroom-footer {
-  background-color: #f0f2f5;
-  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   gap: 10px;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* استايل حقل الكتابة في الـ Footer */
 .chatroom-footer input {
   flex: 1;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px solid #00bfff;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
   outline: none;
+  transition: all 0.3s ease-in-out;
 }
 
+/* استايل النص داخل حقل الكتابة عند عدم إدخال شيء */
+.chatroom-footer input::placeholder {
+  color: #ccc;
+}
+
+/* استايل حقل الكتابة عند التفاعل معه */
+.chatroom-footer input:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 10px #1e90ff33;
+}
+
+/* استايل الأزرار في الـ Footer */
 .chatroom-footer button {
-  background-color: #008069;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
+  background-color: transparent;
+  color: #00bfff;
   border: none;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
 }
 
+/* تأثير hover على الأزرار */
 .chatroom-footer button:hover {
-  background-color: #056e57;
+  background: rgba(0, 191, 255, 0.1);
+}
+
+/* استايل الـ Modal عند الضغط على الرسالة */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* استايل صندوق الـ Modal */
+.modal-box {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* استايل الأزرار داخل الـ Modal */
+.modal-box button {
+  padding: 8px 12px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* تأثير hover على الأزرار داخل الـ Modal */
+.modal-box button:hover {
+  background-color: #333;
+}
+
+/* تعريف الأنيميشن للـ fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,3 +1,4 @@
+/* الأساسيات */
 body {
   margin: 0;
   padding: 0;
@@ -12,7 +13,8 @@ body {
   padding: 0 10px;
 }
 
-.navbar {
+/* Navbar */
+.home-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,39 +24,115 @@ body {
   border-radius: 8px;
 }
 
-.logo {
+.home-logo {
   font-size: 24px;
   font-weight: bold;
   color: #00d2ff;
 }
 
-.icons svg {
+.home-icons svg {
   margin-left: 15px;
   cursor: pointer;
   color: #ccc;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.icons svg:hover {
+.home-icons svg:hover {
   color: #00d2ff;
   transform: scale(1.1);
 }
 
-.stories {
+/* Sidebar (Slider Bar) for PC */
+.home-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  background-color: #181818;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  transition: all 0.5s ease; /* تعديل السرعة والانتقال */
+  overflow: hidden;
+  transform: translateX(-100%); /* إخفاء الشريط الجانبي عند التحميل */
+}
+
+.home-sidebar.open {
+  width: 180px;
+  transform: translateX(0); /* فتح الشريط الجانبي */
+}
+
+.home-sidebar-toggle {
+  display: none; /* نعرضها فقط في التوب بار */
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.home-sidebar-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+  transition: opacity 0.3s ease; /* تأثير التلاشي عند الإغلاق */
+  opacity: 0; /* يبدأ الشريط الجانبي بشكل مخفي */
+}
+
+.home-sidebar.open .home-sidebar-items {
+  opacity: 1; /* إظهار العناصر عند فتح الشريط */
+}
+
+.home-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.home-sidebar-item:hover {
+  color: #00d2ff;
+  transform: translateX(10px); /* تحريك العناصر قليلاً عند التمرير */
+}
+
+.home-sidebar-item svg {
+  min-width: 20px;
+}
+
+/* Navbar Toggle Icon on Top */
+.home-navbar .home-sidebar-toggle {
+  display: flex;
+  margin-right: 15px;
+}
+
+/* تحسين مظهر الشريط الجانبي عند التمرير */
+.home-sidebar.open {
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.6); /* إضافة تأثير الظل عند الفتح */
+}
+
+
+/* Stories */
+.home-stories {
   display: flex;
   overflow-x: auto;
   padding: 15px 0;
   gap: 15px;
 }
 
-.story {
+.home-story {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
 
-.story img {
+.home-story img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -64,23 +142,24 @@ body {
   transition: transform 0.3s ease;
 }
 
-.story img:hover {
+.home-story img:hover {
   transform: scale(1.1);
 }
 
-.story span {
+.home-story span {
   font-size: 14px;
   color: #ddd;
 }
 
-.posts {
+/* Posts */
+.home-posts {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-bottom: 30px;
 }
 
-.post {
+.home-post {
   background-color: #000000a4;
   border-radius: 16px;
   overflow: hidden;
@@ -101,12 +180,12 @@ body {
   }
 }
 
-.post:hover {
+.home-post:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 20px #00d2ff4d;
 }
 
-.post-header {
+.home-post-header {
   display: flex;
   align-items: center;
   padding: 12px 18px;
@@ -115,23 +194,21 @@ body {
   gap: 10px;
 }
 
-
-
-.post-header .username {
+.home-username {
   font-size: 18px;
   color: #00d2ff;
   font-weight: 500;
   margin-left: 2px;
 }
 
-.post img {
+.home-post img {
   width: 100%;
   height: 400px;
   object-fit: cover;
   border-bottom: 1px solid #333;
 }
 
-.post-header img {
+.home-post-header img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -140,47 +217,89 @@ body {
   border: 1px solid #00d2ff;
 }
 
-.post-caption {
+.home-post-caption {
   padding: 10px 18px;
   font-size: 15px;
-  color: #ccc;
-  border-bottom: 1px solid #333;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  color: #ddd;
 }
 
-.post-caption .time {
-  font-size: 13px;
-  color: #888;
+.home-time {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
 }
 
-.post-actions {
+.home-post-actions {
   display: flex;
   justify-content: space-between;
   padding: 10px 18px;
-  background-color: #00000085;
-  border-top: 1px solid #33333381;
+  border-top: 1px solid #333;
 }
 
-.post-actions .action {
+.home-action {
   display: flex;
   align-items: center;
-  color: #ccc;
+  color: #aaa;
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.post-actions .action:hover {
+.home-action svg {
+  margin-right: 6px;
+}
+
+.home-action:hover {
   color: #00d2ff;
-  transform: scale(1.1);
 }
 
-.post-actions .action svg {
-  margin-right: 5px;
+/* Media Queries */
+@media (max-width: 768px) {
+  /* إخفاء الشريط الجانبي على الهواتف */
+  .home-sidebar {
+    display: none;
+  }
+
+  /* إظهار الشريط السفلي */
+  .home-bottom-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-around;
+    background-color: #181818;
+    padding: 10px;
+    border-top: 1px solid #333;
+    z-index: 100;
+  }
+
+  .home-bottom-bar svg {
+    color: #ccc;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .home-bottom-bar svg:hover {
+    color: #00d2ff;
+  }
+
+  /* تحسينات على التنقل مع الشريط السفلي */
+  .home-navbar {
+    display: none;
+  }
+
+  .home-icons {
+    display: none;
+  }
 }
 
-.post-actions .action span {
-  font-size: 14px;
-  margin-left: 5px;
+@media (min-width: 769px) {
+  /* إظهار الشريط الجانبي على أجهزة الكمبيوتر */
+  .home-bottom-bar {
+    display: none;
+  }
+
+  .home-sidebar {
+    display: block;
+  }
 }
